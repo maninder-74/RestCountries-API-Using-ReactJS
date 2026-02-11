@@ -1,6 +1,9 @@
 import {React,useEffect, useState} from 'react'
+import Navbar from '../Navbar/Navbar'
+import Search from '../Search/Search'
 import '../Data/Data.css'
-
+import CountryDetail from '../CountryDetail/CountryDetail';
+import {Link} from 'react-router-dom'
 const Data = () => {
 // 
     const [newData,setnewData] = useState([]);
@@ -18,13 +21,16 @@ useEffect(()=>{
 
 if(newData){
         return (
+         <div>
+            <Navbar/>
+            <Search/>
 <main id="main">
          <div className="mainAlign">
           <div className="countries">
 {     
-     newData.map((item)=>{
-         return(
-                  <a href="#" className='countriesList'> 
+     newData.map((item,index)=>{
+         return( 
+                  <Link to={`country/${item.name.common}`} key={index} className='countriesList'> 
                       <img src={item.flags.svg} alt='flag'/>
                       <div className="details">
                       <h2>{item.name.common}</h2>
@@ -32,14 +38,16 @@ if(newData){
                       <p><b>Region: </b>{item.region}</p>
                       <p><b>Capital: </b>{item.capital}</p>
                     </div>
-                 </a>
+                 </Link>
             )})   
 }
             </div>
           </div>
         </main>
-  )
-}else{
+  </div>)
+}
+
+else{
      return(
         <div>Data Not Available !</div>
      )

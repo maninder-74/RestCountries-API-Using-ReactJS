@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import './App.css'
-import Navbar from '../components/Navbar/Navbar'
-import Search from '../components/Search/Search'
 import Data from '../components/Data/Data'
+import {Route,Routes} from "react-router-dom"
+import CountryDetail from '../components/CountryDetail/CountryDetail'
+
 function App() {
-
-
   return (
-    <>
-         <Navbar/>
-         <Search/>
-         <Data/>
+    <> 
+        <Routes>
+           <Route path="/" element={<Data/>}/>
+           <Route path="country/:name" element={<CountryDetail/>}/>
+        </Routes>
     </>
   )
 }
