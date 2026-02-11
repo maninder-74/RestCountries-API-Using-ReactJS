@@ -1,0 +1,23 @@
+
+a {
+  text-decoration-line: none;
+  color: inherit;
+}
+nav {
+  background-color: var(--elements-color);
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.navAlign {
+  height: 80px;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title {
+  font-size: 14px;
+}
+.title h2 {
+  font-weight: 800;
+}
